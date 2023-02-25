@@ -41,4 +41,7 @@ func init() {
 }
 func main() {
 	fmt.Println("main is running...")
+	//model.go自动迁移数据库表
+	//DB.AutoMigrate(&User{})
+	CreateTableByModel(&User{})
 }
