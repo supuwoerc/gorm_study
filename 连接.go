@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
+	"gorm.io/gorm/schema"
 )
 
 var DB *gorm.DB
@@ -16,7 +17,16 @@ func init() {
 	dbname := "gorm_study" //数据库名
 	//可能会遇到tcp连接的问题：https://github.com/Masterminds/glide/issues/999
 	connectString := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8&parseTime=true&loc=Local", username, password, host, port, dbname)
-	db, err := gorm.Open(mysql.Open(connectString))
+	db, err := gorm.Open(mysql.New(mysql.Config{
+		DSN: connectString,
+	}), &gorm.Config{
+		SkipDefaultTransaction: false, //跳过默认事务
+		NamingStrategy: schema.NamingStrategy{
+			TablePrefix:   "gva_", //表名前缀
+			SingularTable: true,   //单数表名
+		},
+		DisableForeignKeyConstraintWhenMigrating: true, //不建立物理外键
+	})
 	if err != nil {
 		panic("数据库连接失败：" + err.Error())
 	} else {
