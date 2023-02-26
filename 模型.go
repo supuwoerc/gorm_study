@@ -1,27 +1,16 @@
 package main
 
 import (
-	"database/sql"
 	"fmt"
+	"gorm.io/gorm"
 	"reflect"
 	"strings"
-	"time"
 )
 
-type Model struct {
-	UUID      uint   `gorm:"primaryKey"`
-	ModelName string `gorm:"column:random_module_name"`
-}
 type User struct {
-	Model        Model   `gorm:"embedded;embeddedPrefix:user_"`
-	Name         string  `gorm:"default:default_name"`
-	Email        *string `gorm:"not null；unique"`
-	Age          uint8   `gorm:"comment:年龄"`
-	Birthday     *time.Time
-	MemberNumber sql.NullString
-	ActivatedAt  sql.NullTime
-	CreatedAt    time.Time
-	UpdatedAt    time.Time
+	gorm.Model
+	Name string `gorm:"default:default_name"`
+	Age  uint   `gorm:"comment:年龄"`
 }
 
 // CreateTableByModel 自动迁移数据库模型
