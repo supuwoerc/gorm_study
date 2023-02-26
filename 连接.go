@@ -57,5 +57,7 @@ func main() {
 	//CreateTableByModel(&User{})
 	//CreateTest()
 	//FindTest()
-	UpdateTest()
+	//UpdateTest()
+	//DeleteTest()
+	ExecSQL()
 }
