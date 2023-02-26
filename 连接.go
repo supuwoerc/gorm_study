@@ -56,5 +56,6 @@ func main() {
 	//model.go自动迁移数据库表
 	//CreateTableByModel(&User{})
 	//CreateTest()
-	FindTest()
+	//FindTest()
+	UpdateTest()
 }
