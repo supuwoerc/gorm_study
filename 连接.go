@@ -59,5 +59,6 @@ func main() {
 	//FindTest()
 	//UpdateTest()
 	//DeleteTest()
-	ExecSQL()
+	//ExecSQL()
+	One2One()
 }

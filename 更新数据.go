@@ -9,10 +9,16 @@ func UpdateTest() {
 	//	Name: "名字会被更新，年龄不会",
 	//	Age:  0,
 	//})
-	DB.Model(&User{}).Where("name = ?", "测试数据2").Updates(map[string]interface{}{
-		"Name": "名字和年龄都被更新",
-		"Age":  0,
+	//使用结构体但是也更新零值的
+	DB.Model(&User{}).Select("name", "age").Where("name = ?", "测试数据3").Updates(&User{
+		Name: "",
+		Age:  0,
 	})
+
+	//DB.Model(&User{}).Where("name = ?", "测试数据2").Updates(map[string]interface{}{
+	//	"Name": "名字和年龄都被更新",
+	//	"Age":  0,
+	//})
 	//save 全部保存，包括零值
 	//var user User
 	//DB.Model(&User{}).Where("name = ?", "测试数据1").First(&user)
