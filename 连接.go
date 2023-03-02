@@ -61,5 +61,6 @@ func main() {
 	//DeleteTest()
 	//ExecSQL()
 	//One2One()
-	One2Many()
+	//One2Many()
+	Many2Many()
 }
