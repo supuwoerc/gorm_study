@@ -75,7 +75,7 @@ func Many2Many() {
 	}
 	DB.Model(&test5).Preload("Test5s", func(db *gorm.DB) *gorm.DB {
 		return db.Joins("Info").Where("prop = ?", "我是info_1")
-	}).Association("Test6s").Find(&test6s)
+	}).Where("name = ?", "我是t6_2").Association("Test6s").Find(&test6s)
 	fmt.Println(test6s)
 	//fmt.Println(test6s[0])
 	//fmt.Println(len(test6s[0].Test5s))
