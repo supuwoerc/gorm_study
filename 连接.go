@@ -62,5 +62,6 @@ func main() {
 	//ExecSQL()
 	//One2One()
 	//One2Many()
-	Many2Many()
+	//Many2Many()
+	Polymorphic()
 }
