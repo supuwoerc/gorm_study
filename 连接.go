@@ -15,7 +15,7 @@ var DB *gorm.DB
 
 func init() {
 	username := "root"     //账号
-	password := "12345678" //密码
+	password := "111111"   //密码
 	host := "127.0.0.1"    //地址
 	port := 3306           //端口
 	dbname := "gorm_study" //数据库名
