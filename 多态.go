@@ -24,4 +24,5 @@ type Test9 struct {
 
 func Polymorphic() {
 	fmt.Println("多态")
+	CreateTableByModel(&Test7{}, &Test8{}, &Test9{})
 }
