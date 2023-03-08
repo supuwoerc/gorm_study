@@ -63,5 +63,6 @@ func main() {
 	//One2One()
 	//One2Many()
 	//Many2Many()
-	Polymorphic()
+	//Polymorphic()
+	TestTransaction()
 }
