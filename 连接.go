@@ -64,5 +64,6 @@ func main() {
 	//One2Many()
 	//Many2Many()
 	//Polymorphic()
-	TestTransaction()
+	//TestTransaction()
+	CustomSchema()
 }
